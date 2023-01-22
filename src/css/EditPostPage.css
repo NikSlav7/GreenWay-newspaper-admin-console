@@ -1,0 +1,9 @@
+
+.edit-post-page-container{
+    width: 100%;
+    height: 100%;
+    margin-top: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

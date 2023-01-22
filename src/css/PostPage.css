@@ -1,0 +1,150 @@
+.postPageContainer{
+    height: 95vh;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.postDataContainer{
+    width: 95vw;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+}
+.postDataTitleContainer{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.postDataSubTitleAndTimeContainer{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.postDataTopicsContainer{
+    flex: 7;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    display: grid;
+    overflow: scroll;
+    column-gap: 1vw;
+    row-gap: 1vw;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.postDataTitle{
+    background-color: rgb(242, 242, 242);
+    width: 70%;
+    outline: none;
+    font-family: var(--main-font);
+    font-size: 1.8em;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1%;
+    font-weight: 600;
+    height: 40%;
+    float: left;
+    margin-left: 1vw;
+}
+.postDataSubTitleContainer{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    
+}
+.postDataTimeContainer{
+    
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.postDataSubTitle{
+    background-color: rgb(242, 242, 242);
+    width: 70%;
+    outline: none;
+    font-family: var(--main-font);
+    font-size: 1.4em;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1%;
+    font-weight: 500;
+    height: 37%;
+    float: left;
+    margin-left: 1vw;
+}
+.postDataTime{
+    background-color: rgb(242, 242, 242);
+    width: 70%;
+    outline: none;
+    font-family: var(--main-font);
+    font-size: 1.4em;
+    border: none;
+    border-radius: 1vh;
+    padding-left: 1%;
+    font-weight: 500;
+    height: 37%;
+    float: left;
+    margin-left: 1vw;
+}
+.postDataTopic{
+    width: 100%;
+    background-color: rgb(242, 242, 242);
+    border-radius: 2vh;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+}
+.postDataTopicHeaderContainer{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.postDataTopicHeader{
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: left;
+    margin-bottom: 0;
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 2em;
+}
+.postDataTopicContentContainer{
+    flex: 6;
+}
+.postDataTopicContent{
+    resize: none;
+    width: 96%;
+    margin-top: 2%;
+    outline: none;
+    padding: 1%;
+    font-size: 1.2em;
+    border-radius: 2vh;
+    border: none;
+    font-family: var(--main-font);
+    height: 85%;
+}
+
+.emailSendButton{
+    display: block;
+    margin-top: 1vh;
+    height: 5vh;
+    width: 95vw;
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    font-family: 'Libre Franklin';
+    font-size: 1.8vh;
+    border-radius: 0.8vh;
+    transition: all 150ms;
+}
+.emailSendButton:hover{
+    transform: scale(1.01);
+    filter: brightness(110%);
+}

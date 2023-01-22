@@ -1,0 +1,35 @@
+
+.navbar-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 6vh;
+    background-color: var(--main-color);
+}
+.navbar-links{
+    float: left;
+    width: 22%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.navbar-links a{
+    height: 6vh;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 100%;
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+    color: black;
+    vertical-align: center;
+    overflow: hidden;
+    transition: all 150ms;
+}
+.navbar-links a:hover{
+    transform: scale(1.06);
+    filter: brightness(110%);
+    font-weight: 600;
+}
