@@ -1,13 +1,13 @@
 .emails-page-container{
     width: 100vw;
-    height: 100vh;
+    height: 180vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .content-container{
-    height: 94vh;
+    height: 164vh;
     width: 100vw;
     margin-top: 6vh;
     display: flex;
@@ -39,11 +39,12 @@
 }
 
 
-
 .sent-email-container{
     display: flex;
     flex-direction: column;
     aspect-ratio: 1/1;
+    overflow: hidden;
+    max-height: 100%;
     border-radius: 1vh;
     background-color: rgb(234, 234, 234);
     transition: all 150ms;
@@ -94,7 +95,6 @@
     flex: 0.2;
     width: 100%;
     border-radius: 0 0 1vh 1vh;
-
     background-color: red;
 }
 .status-container-not-sent{
@@ -102,6 +102,12 @@
     width: 100%;
     border-radius: 0 0 1vh 1vh;
     background-color: greenyellow;
+}
+.status-container-sending{
+    flex: 0.2;
+    width: 100%;
+    border-radius: 0 0 1vh 1vh;
+    background-color: yellow;
 }
 .email-list-container{
     margin-left: 2%;

@@ -57,9 +57,8 @@ function PostEditData(props){
                 'Content-Type': 'Application/json'
             },
             body: JSON.stringify(data)
-        }).then(()=>{
-            redirectToEmailsPage()
         })
+        redirectToEmailsPage()
     }
 
     function saveMessage(){

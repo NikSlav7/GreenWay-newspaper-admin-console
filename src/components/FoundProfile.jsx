@@ -26,20 +26,35 @@ function FoundProfile(props){
         }
     }
 
-    function updateFollower(){
+    function updateFollower(oldFollower, newFollower){
         let body = {};
-        body['oldFollower'] = props.data;
-        
+        body['oldFollower'] = oldFollower;
+        body['newFollower'] = newFollower;
+        console.log(body)
         fetch("http://localhost:12121/api/followers/update", {
             method:"post",
             headers:{
                 'Authorization': getCookie('EMAILAUTHTOKEN'),
                 'Content-Type': 'application/json'
             },
-            body:{
-                
-            }
+            body:JSON.stringify(body)
         })
+    }
+
+    function saveProfile(id){
+        let dataCopy = props.data;
+        for (var i = 0; i < 3; i++){
+            let select = document.getElementById(id + i);
+            dataCopy['interests'][i] = select.value;
+        }
+        updateFollower(props.data, dataCopy)
+    
+    }
+
+    function onSaveButtonClick(id){
+        saveProfile(id)
+        props.edit(props.data['followerEmail'], !editing.current)
+        editing.current = !editing.current;
     }
 
     function getCookie(cookieName){
@@ -74,7 +89,7 @@ function FoundProfile(props){
                 }}>Edit</button>
             </div>
         </div>
-        <FoundProfileEditDetails id={props.data['followerEmail']} interests={getInterests()}/>
+        <FoundProfileEditDetails save={onSaveButtonClick} id={props.data['followerEmail']} interests={getInterests()}/>
     </div>)
 }
 

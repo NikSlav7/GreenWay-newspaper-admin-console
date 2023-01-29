@@ -1,9 +1,12 @@
 import '../css/AllEmailsPage.css'
+import { useRef } from 'react';
 function SentEmail(props){
 
     function onContainerClick(){
         window.location.pathname = '/edit/' + props.data['whenToSend'] + '/' + props.data['messageStatus'];
     }
+
+    let statuses = useRef(['status-container-not-sent', 'status-container-sending', 'status-container-sent'])
 
     console.log(props.statuses[props.data['messageStatus']])
     return (
@@ -21,7 +24,7 @@ function SentEmail(props){
             </div>
            
         </div>
-        <div className={props.data['messageStatus'] === 0 ? 'status-container-not-sent' : 'status-container-sent'}>
+        <div className={statuses.current[props.data['messageStatus']]}>
 
          </div>
     </div>

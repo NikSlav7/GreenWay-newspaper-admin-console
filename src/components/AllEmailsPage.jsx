@@ -1,6 +1,7 @@
 import NavBar from "./navbar";
 import EmailList from "./EmailList";
 import '../css/AllEmailsPage.css'
+import SendingEmailList from "./SendingEmailList";
 function AllEmailsPage(){
 
     return (
@@ -11,6 +12,7 @@ function AllEmailsPage(){
                     <EmailList future={true}/>
                     <EmailList future={false}/>
                 </div>
+                <SendingEmailList />
             </div>
         </div>
     )

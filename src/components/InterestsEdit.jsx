@@ -37,7 +37,7 @@ function InterestsEdit(props){
     return(
         <div className='edit-details-container-'>
             <div className="edit-interests-container">
-                {props.userInterests.map(interest => <InterestEdit selected={interest} options={interstOptions}/>)}
+                {props.userInterests.map((interest, ind) => <InterestEdit ind={ind} id ={props.id} selected={interest} options={interstOptions}/>)}
             </div> 
         </div>
     )
