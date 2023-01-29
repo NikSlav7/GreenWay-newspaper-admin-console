@@ -9,9 +9,9 @@
 }
 .navbar-links{
     float: left;
-    width: 22%;
+    width: 27%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 .navbar-links a{
     height: 6vh;
@@ -29,7 +29,7 @@
     transition: all 150ms;
 }
 .navbar-links a:hover{
-    transform: scale(1.06);
-    filter: brightness(110%);
+    transform: scale(1.03);
+    filter: brightness(105%);
     font-weight: 600;
 }

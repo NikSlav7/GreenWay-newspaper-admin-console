@@ -1,0 +1,71 @@
+
+.followers-page-container{
+    margin-top: 6vh;
+    display: flex;
+    width: 100%;
+    min-height: 94vh;
+}
+
+.followers-page-input-container{
+    flex: 1;
+    min-height: 94vh;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+}
+.email-input-container{
+    flex: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.email-search-button-container{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.email-search-button{
+    height: 23.5%;
+    font-size: 120%;
+    color: white;
+    font-family: var(--main-font);
+    border-radius: 1.2vh;
+    border: none;
+    aspect-ratio: 1/1;
+    background-color: var(--main-color);
+    margin-left: 5%;
+}
+.email-search-button:hover{
+    filter: brightness(110%);
+    box-shadow: 5% 5% 50px 50px;
+}
+.email-input{
+    width: 60%;
+    height: 20%;
+    border-radius: 1.2vh;
+    border: none;
+    outline: none;
+    font-family: var(--main-font);
+    font-size: 105%;
+    padding: 0.8%;
+}
+.email-input:focus{
+    border: solid;
+    border-color: var(--main-color);
+    transform: scale(1.01);
+}
+
+.followers-page-output-container{
+    flex: 1;
+    min-height: 94vh;
+}
+
+.email-search-container{
+    width: 100%;
+    height: 20%;
+    display: flex;
+}

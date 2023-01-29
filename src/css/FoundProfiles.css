@@ -1,0 +1,177 @@
+
+.found-profiles-container{
+    min-height: 94vh; 
+    width: 90%;
+    margin: 5%;
+    flex-direction: column;
+    display: flex;
+    z-index: -5;
+}
+.found-profile-large-container{
+    width: 100%;
+    margin-bottom: 1.1vh;
+}
+.found-profile-container{
+    overflow: hidden;
+    width: 95%;
+    height: 7vh;
+    display: flex;
+    background-color: rgb(239, 238, 238);
+    padding: 0.35vh; 
+    z-index: 5;
+}
+.found-profile-container:hover{
+    background-color: var(--main-color);
+    filter: brightness(105%);
+}
+.found-profile-details-container{
+    flex: 8;
+    height: 100%;
+    display: flex;
+}
+.found-profile-buttons-container{
+    flex: 4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.found-profile-edit-button{
+    background-color: rgb(0, 170, 255);
+    font-family: var(--main-font);
+    font-size: 75%;
+    overflow: hidden;
+    color: white;
+    width: 35%;
+    height: 45%;
+    border-radius: 0.9vh;
+    border: none;
+}
+.found-profile-remove-button{
+    background-color: rgb(255, 0, 60);
+    margin-right: 8%;
+    font-family: var(--main-font);
+    font-size: 75%;
+    color: white;
+    width: 35%;
+    height: 45%;
+    border-radius: 0.9vh;
+    border: none;
+    overflow: hidden;
+
+}
+.found-profile-edit-button:hover, .found-profile-remove-button:hover{
+    width: 45%;
+    filter: brightness(105%);
+}
+
+.found-profile-email-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+.found-profile-interests-container{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.found-profile-email{
+    font-family: var(--main-font);
+    font-size: 110%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+
+}
+.found-profile-interests{
+    font-family: var(--main-font);
+    font-size: 90%;
+    text-align: left;
+    width: 100%;
+}
+
+.found-profile-edit-details-container{
+    height: 15vh;
+    width: 43.1%;
+    flex: 7;
+    max-height: 0;
+    position: absolute;
+    transition: all ease-in  600ms !important;
+    background-color: wheat;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all ease-in 150ms;
+}
+.interests-edit-container{
+    width: 100%;
+    height: 100%;
+}
+
+.edit-interests-container{
+    width: 70%;
+    height: 70%;
+    margin-left: 15%;
+    margin-top: 1.5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.edit-details-container{
+    width: 100%;
+    height: 100%;
+}
+.edit-details-select-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.found-profile-edit-details-container::before{
+    content: "Edit interests";
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 120%;
+    margin-top: 2vh;
+}
+.edit-details-select{
+    width: 70%;
+    height: 135%;
+    border: none;
+    outline: none;
+    border-radius: 0.8vh;
+}
+.edit-details-select:focus{
+    transform: scale(1.02);
+    background-color: lighgray;
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+
+}
+.edit-details-header-container{
+    flex: 1;
+    width: 100%;
+    height: 3vh;
+}
+.edit-details-header{
+    font-family: var(--main-font);
+}
+.details-save-button{
+    margin-top: 2vh;
+    height: 36%;
+    width: 50%;
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+    border: none;
+    border-radius: 1vh;
+    margin-bottom: 1vh;
+}
+.details-save-button-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}

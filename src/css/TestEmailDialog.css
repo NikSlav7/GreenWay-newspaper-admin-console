@@ -1,0 +1,78 @@
+.test-email-dialog-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(120, 120, 120, 0.5);
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.test-email-dialog-data-container{
+    width: 30vw;
+    background-color: rgb(245, 245, 245);
+    aspect-ratio: 4/3;
+    border-radius: 1vw;
+    display: flex;
+    padding: 1%;
+    flex-direction: column;
+}
+.test-email-dialog-data-header-container{
+    flex: 0.8;
+}
+.test-email-dialog-data-header{
+    font-size: 220%;
+    margin-bottom: 0;
+    font-weight: 600;
+    width: 100%;
+    font-family: var(--main-font);
+    text-align: left;
+    padding-left: 5%;
+}
+.test-email-dialog-data-emails-container{
+    flex: 4;
+}
+.test-email-dialog-data-emails{
+    width: 90%;
+    height: 80%;
+    border: none;
+    outline: none;
+    margin: 5%;
+    resize: none;
+    border-radius: 1vh;
+    padding: 1%;
+    font-family: var(--main-font);
+    font-size: 118%;
+}
+.test-email-dialog-data-buttons-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1.25;
+}
+.test-email-dialog-data-send-button{
+    margin: 0 5% 0 5%;
+    margin-bottom: 2%;
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+    border: none;
+    border-radius: 0.5vh;
+    color: white;
+    font-size: 100%;
+    height: 100%;
+}
+.test-email-dialog-data-cancel-button{
+    margin: 0 5% 0 5%;
+    margin-bottom: 2%;
+    background-color: rgb(255, 0, 76);
+    font-family: var(--main-font);
+    border: none;
+    border-radius: 0.5vh;
+    color: white;
+    font-size: 100%;
+    height: 100%;
+}

@@ -6,7 +6,7 @@ import PostPage from './components/PostPage';
 import AllEmailsPage from './components/AllEmailsPage';
 import HomePage from './components/HomePage';
 import EditPostPage from './components/EditPostPage';
-
+import FollowersPage from './components/FollowersPage';
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
         <Route path='/post' element={<PostPage />}></Route>
         <Route path='/edit/:time/:status' element={<EditPostPage />}></Route>
         <Route path='/emails' element={<AllEmailsPage/>}></Route>
+        <Route path='/followers' element={<FollowersPage />}></Route>
       </Routes>
     </div>
   );
