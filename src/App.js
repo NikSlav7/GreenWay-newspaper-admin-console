@@ -7,6 +7,8 @@ import AllEmailsPage from './components/AllEmailsPage';
 import HomePage from './components/HomePage';
 import EditPostPage from './components/EditPostPage';
 import FollowersPage from './components/FollowersPage';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import AdapterDateFns from '@mui/lab/AdapterDateFns'
 function App() {
   return (
     <div className="App">

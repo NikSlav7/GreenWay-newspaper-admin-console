@@ -1,0 +1,33 @@
+
+.checkbox-container{
+    width: 100%;
+    aspect-ratio: 5/2;
+    flex-direction: column;
+    display: flex;
+    border-radius: 0.5vh;
+    background-color: rgb(246, 246, 246);
+}
+
+.checkbox-header-container{
+    flex: 1.5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkbox-header{
+    margin: 0;
+    font-size: 90%;
+    font-family: var(--main-font);
+}
+.checkbox-input-container{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.checkbox-container:hover{
+
+}

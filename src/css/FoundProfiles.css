@@ -98,7 +98,7 @@
     max-height: 0;
     position: absolute;
     transition: all ease-in  600ms !important;
-    background-color: wheat;
+    background-color: rgb(255, 240, 213);
     overflow: hidden;
     z-index: 1;
     display: flex;
@@ -168,6 +168,10 @@
     border: none;
     border-radius: 1vh;
     margin-bottom: 1vh;
+}
+.details-save-button:hover{
+    width: 55%;
+    filter: brightness(105%);
 }
 .details-save-button-container{
     display: flex;

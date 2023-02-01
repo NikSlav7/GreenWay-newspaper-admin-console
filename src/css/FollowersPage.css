@@ -69,3 +69,35 @@
     height: 20%;
     display: flex;
 }
+
+.filters-input-container{
+    width: 100%;
+    min-height: 80vh;
+}
+.interest-filter-container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.interest-filter-header-container{
+    flex: 1;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+}
+.interest-filter-header{
+    font-size: 180%;
+    font-weight: 600;
+    margin: 0;
+    font-family: var(--main-font);
+}
+.interest-filter-input-container{
+    margin-top: 3vh;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 1vh;
+    row-gap: 1vh;
+}

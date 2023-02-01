@@ -5,7 +5,7 @@ function PostTopics(props){
 
     return(
     <div className='postDataTopicsContainer'>
-       {props.postTopics.map(topic => <PostTopic headerName={topic} idName={topic}/>)}
+       {props.postTopics.map((topic, ind) => <PostTopic pos={ind} insertpic={props.insertpic} headerName={topic} idName={topic}/>)}
     </div>
     )
 }

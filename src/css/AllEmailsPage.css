@@ -43,8 +43,8 @@
     display: flex;
     flex-direction: column;
     aspect-ratio: 1/1;
+    height: 35vh;
     overflow: hidden;
-    max-height: 100%;
     border-radius: 1vh;
     background-color: rgb(234, 234, 234);
     transition: all 150ms;
@@ -127,14 +127,12 @@
 }
 .email-list{
     flex: 11;
-    width: 100%;
     min-width: 100%;
-    height: 100%;
     display: grid;
     column-gap: 2vw;
     padding-left: 1%;
     padding-right: 1%;
-    row-gap: 10%;
+    row-gap: 5vh;
     overflow: scroll;
     margin-left: 5%;
     margin-right: 5%;

@@ -100,16 +100,45 @@
     display: flex;
     flex-direction: column;
 }
+.error{
+    border: solid;
+    border-width: 0.15vh;
+    border-color: red;
+}
 .postDataTopicHeaderContainer{
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: end;
+}
+.postDataTopicAddPictureButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 10%;
+    height: 100%;
+} 
+.postDataTopicAddPictureButton{
+    height: 30%;
+    aspect-ratio: 5/1;
+    font-family: var(--main-font);
+    border-radius: 0.2vw;
+    margin: 0 20% 0 0;
+    border: none;
+    font-size: 90%;
+    background-color: transparent;
+    color: black;
+}
+.postDataTopicAddPictureButton:hover{
+    font-size: 110%;
+    color: var(--main-color);
 }
 .postDataTopicHeader{
     margin-left: 2%;
     margin-right: 2%;
     text-align: left;
+    display: inline;
+    width: 90%;
     margin-bottom: 0;
     font-family: var(--main-font);
     font-weight: 600;

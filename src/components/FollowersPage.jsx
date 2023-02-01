@@ -1,5 +1,8 @@
+import { Checkbox } from '@mui/material';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import '../css/FollowersPage.css'
+import FilterCheckbox from './FilterCheckbox';
 import FoundProfileList from './FoundProfileList';
 import NavBar from './navbar';
 function FollowersPage(){
@@ -7,6 +10,27 @@ function FollowersPage(){
     const[foundProfiles, setFoundProfiles] = useState([]);
 
     const[flag, setFlag] = useState(false);
+
+    const[topics, setTopics] = useState([])
+
+
+
+    function getAllTopics(){
+        fetch("http://localhost:12121/api/interest/get-all", {
+            method:'get',
+            headers:{
+                'Authorization': getCookie('EMAILAUTHTOKEN')
+            }
+        }).then((response) =>{
+            response.json().then((result) =>{
+                console.log(result)
+                setTopics(result)
+            })
+        })
+    }
+    useEffect(() => {
+        getAllTopics()
+    },[])
 
     function getCookie(cookieName){
         let cookie = {};
@@ -19,13 +43,16 @@ function FollowersPage(){
 
     function findProfile(email){
 
-        fetch("http://localhost:12121/api/followers/get-by-email-prefix", {
+        fetch("http://localhost:12121/api/followers/get-by-email-prefix-and-filter", {
             method: 'post', 
             headers:{
                 'Authorization': getCookie('EMAILAUTHTOKEN'),
                 'Content-Type': 'application/json'
             },
-            body: email
+            body: JSON.stringify({
+                'prefix': email,
+                'interests': getInterestFilter()
+            })
         }).then((response) =>{
             if (response.status !== 200) return;
             
@@ -85,6 +112,18 @@ function FollowersPage(){
         setFlag(!flag);
     }
 
+    function getInterestFilter(){
+        let checked = [];
+        let checkboxes = document.querySelectorAll('.checkbox-input');
+        checkboxes.forEach(checkbox =>{
+            if (checkbox.checked){
+                checked.push(checkbox.value)
+            }
+        })
+        console.log(checked);
+        return checked;
+    }
+
     return (
         <div>
             <NavBar />
@@ -96,6 +135,16 @@ function FollowersPage(){
                         </div>
                         <div className='email-search-button-container'>
                             <button onClick={() => onProfileFindButtonClick()} className='email-search-button'>S</button>
+                        </div>
+                    </div>
+                    <div className='filters-input-container'>
+                        <div className='interest-filter-container'>
+                            <div className='interest-filter-header-container'>
+                                <p className='interest-filter-header'>Interests</p>
+                            </div>
+                            <div className='interest-filter-input-container'>
+                                {topics.map(topic => <FilterCheckbox name={topic}/>)}
+                            </div>
                         </div>
                     </div>
                 </div>

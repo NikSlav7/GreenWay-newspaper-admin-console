@@ -8,7 +8,10 @@ function SentEmail(props){
 
     let statuses = useRef(['status-container-not-sent', 'status-container-sending', 'status-container-sent'])
 
-    console.log(props.statuses[props.data['messageStatus']])
+    console.log(props.data['messageStatus'])
+
+
+
     return (
     
     <div className="sent-email-container" onClick={() => onContainerClick()}>
@@ -25,7 +28,6 @@ function SentEmail(props){
            
         </div>
         <div className={statuses.current[props.data['messageStatus']]}>
-
          </div>
     </div>
     

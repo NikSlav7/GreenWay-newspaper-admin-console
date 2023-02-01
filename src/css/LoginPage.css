@@ -7,7 +7,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: gray;
+    background-color: white;
     justify-content: center;
     align-items: center;
     
@@ -17,8 +17,8 @@
     padding: 1%;
     border-radius: 1.5vh;
     height: 40vh;
-    background-color: white;
-    aspect-ratio: 1/1.2;
+    background-color: rgb(240, 240, 240);
+    aspect-ratio: 1.5/1;
     display: flex;
     flex-direction: column;
 }
@@ -27,14 +27,16 @@
     width: 100%;
     height: 100%;
     flex: 1;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: end;
 }
 .login-page-header{
+    margin: 8% 0 0 0;
     text-align: left;
-    font-family: 'Libre Franklin';
-    font-size: 2.2em;
+    font-family: var(--main-font);
+    font-size: 300%;
     font-weight: 600;
 }
 .login-page-credentials-container{
@@ -43,11 +45,14 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    margin-top: 15%;
+    margin-top: 9%;
 }
 .login-page-credentials-container input{
     display: block;
+    border: none;
     width: 90%;
+    padding: 0.6%;
+    border-radius: 0.5vh;
     outline: none;
     font-family: 'Libre Franklin';
     height: 3.6vh;
@@ -55,10 +60,16 @@
 .login-button{
     width: 92%;
     margin-top: 10%;
-    height: 3.5vh;
-    border-radius: 0.5vh;
+    height: 4vh;
+    border-radius: 0.8vh;
     float: left;
     border: none;
+    color: white;
     background-color: var(--main-color);
+    transition: all ease-in 150ms;
     font-family: var(--main-font);
+}
+.login-button:hover{
+    width: 95%;
+    filter: brightness(105%);
 }

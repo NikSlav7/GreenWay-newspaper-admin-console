@@ -5,6 +5,12 @@ import PostTopics from './PostTopics';
 import '../css/EditPost.css'
 import PostTopicsEdit from './PostTopicsEdit';
 import { useEffect } from 'react';
+import { useRef } from 'react';
+import { DateTimePicker } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { TextField } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { useCalendarState } from '@mui/x-date-pickers/internals';
 function PostEditData(props){
 
     const{time, status} = useParams();
@@ -13,9 +19,38 @@ function PostEditData(props){
 
     const[flag, setFlag] = useState(false)
 
+    const statuses = useRef([]);
+
+    const[whenToSend, setWhenToSend] = useState(new Date());
+
     useEffect(()=>{
         getPostData();
+        getAllStatuses();
     }, [])
+
+    function onWhenToSendChange(newDate){
+        setWhenToSend(newDate)
+    }
+
+
+    function getAllStatuses(){
+
+        fetch('http://localhost:12121/api/email/get-status', {
+            method: 'get',
+            headers:{
+                Authorization: getCookie("EMAILAUTHTOKEN")
+            }
+        }).then((response) =>{
+            response.json().then((result) =>{
+                statuses.current = result;
+            })
+        })
+    }
+
+    function getSentStatus(){
+        console.log((statuses.current.length - 1))
+        return (statuses.current.length - 1);
+    }
 
     function getPostData(){
         let url = new URL('http://localhost:12121/api/email/get-one-email');
@@ -30,10 +65,14 @@ function PostEditData(props){
             }
         }).then((response) =>{
             response.json().then((result) =>{
+                console.log(result['messageHeader'])
+                if (result['messageHeader'] === undefined){
+                    window.location.pathname = '/emails';
+                }
                 setData(result)
                 setFlag(!flag)
-                console.log(data)
                 setUpValues(result)
+                
             })
         })
     }
@@ -42,7 +81,9 @@ function PostEditData(props){
         console.log(result['messageHeader'])
         document.getElementById('title-textarea').value = result['messageHeader'];
         document.getElementById('subtitle-textarea').value = result['messageSubHeader']
-        document.getElementById('time-textarea').value = parseDate(new Date(result['whenToSend']))
+        let date = new Date(result['whenToSend']);
+        console.log(date)
+        setWhenToSend(date)
 
         Object.keys(result['body']).forEach(key =>{
             document.getElementById(key + "-textarea").value = result['body'][key];
@@ -72,7 +113,7 @@ function PostEditData(props){
                 'messageList':[data, getCurrentPostData()]
             })
         }).then(()=>{
-            redirectToEmailsPage()
+            window.location.reload()
         })
     }
 
@@ -90,6 +131,8 @@ function PostEditData(props){
         
     }
 
+    
+
     function redirectToEmailsPage(){
         window.location.pathname = "/emails"
     }
@@ -99,9 +142,8 @@ function PostEditData(props){
         obj['messageHeader'] = document.getElementById('title-textarea').value;
         obj['messageSubHeader'] = document.getElementById('subtitle-textarea').value;
         obj['messageStatus'] = data['messageStatus']
-        let date = new Date(document.getElementById('time-textarea').value);
-        console.log(toJavaLocalDateTime(date))
-        obj['whenToSend'] = toJavaLocalDateTime(date);
+        console.log(toJavaLocalDateTime(whenToSend))
+        obj['whenToSend'] = toJavaLocalDateTime(whenToSend);
 
 
 
@@ -115,7 +157,7 @@ function PostEditData(props){
         return obj;
     }
     function toJavaLocalDateTime(date){
-        return date.getFullYear() + "-" + (date.getMonth() < 9 ? "0" +  (date.getMonth() + 1) : (date.getMonth()+1)) + "-" + date.getDate() + "T" + (date.getHours() < 10 ? '0'+date.getHours() : date.getHours()) + ":" +(date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ":" + (date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds());
+     return date.getFullYear() + "-" + (date.getMonth() < 9 ? "0" +  (date.getMonth() + 1) : (date.getMonth()+1)) + "-" +  (date.getDate() < 9 ? "0" +  (date.getDate()) : (date.getDate())) + "T" + (date.getHours() < 10 ? '0'+date.getHours() : date.getHours()) + ":" +(date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ":" + (date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds());
     }
 
     function parseDate(date){
@@ -132,6 +174,7 @@ function PostEditData(props){
      }
 
     return (
+        <LocalizationProvider dateAdapter={AdapterMoment}>
         <div className="postDataContainer">
             <div className='postDataTitleContainer'>
                 <input className='postDataTitle' type='text' placeholder='Title'  id='title-textarea'/>
@@ -141,24 +184,31 @@ function PostEditData(props){
                     <input className='postDataSubTitle' placeholder='Subtitle' id='subtitle-textarea'/>
                 </div>
                 <div className='postDataTimeContainer'>
-                    <input className='postDataTime' placeholder='Time' id='time-textarea'/>
+                <DateTimePicker
+                        label="Pick Time"
+                        value={whenToSend}
+                        onChange={(newValue) => {
+                        onWhenToSendChange(newValue.toDate());
+                        }}
+                        renderInput={(params) => <TextField  {...params} />}
+                    />
                 </div>
             </div>
             {data['body'] != undefined && <PostTopicsEdit postTopics={data['body']}/>}
-            <div className='post-edit-buttons-container'>
+            {data['messageStatus'] !== getSentStatus() &&<div className='post-edit-buttons-container'>
                 <div className='post-edit-button-container'>
-                    <button className='post-edit-remove-button' onClick={() => removeMessage()}>Remove Post</button>  
+                    <button className='post-edit-remove-button' onClick={() => removeMessage()}>Remove Post</button>
                 </div>
-                {data['messageStatus'] !== 2 &&
                 <div className='post-edit-button-container'>
-                    <button className='post-edit-send-now-button' onClick={() => sendMessageNow()}>Send Now</button>  
+                   <button className='post-edit-send-now-button' onClick={() => sendMessageNow()}>Send Now</button>
                 </div>  
-                }
+                
                 <div className='post-edit-button-container'>
                     <button className='post-edit-save-button' onClick={() => saveMessage()}>Save Changes</button>  
-                </div>                 
-            </div>
+                </div>
+            </div>}
         </div>
+        </LocalizationProvider>
     )
 }
 export default PostEditData;
