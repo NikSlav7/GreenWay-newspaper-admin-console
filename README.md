@@ -1,3 +1,6 @@
+# GreenWay
+A newspaper that sends its followers news and other info about chosen categories. This repo is for an admin part (website where admin writes and sends the emails for subscribers)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
